@@ -131,11 +131,11 @@ Example|Match|Not match
 `/(abc)+/`|**"abc" "abcabc" "abcabcabc"**
 `/(in)?complete/`|**"complete" "incomplete"**|"ncomplete" "icomplete"
 `/apple(s)?/`| same as `/apples?/` but may look clearer
-`/(apple|banana)/`|**"apple" "banana"**
-`/(apple (juice|cake))/`|**"apple juice" "apple cake"**|"apple " "cake" "juice"
-`/(peanut|peanutbutter)/`|**only "peanut" in "peanutbutter", the first part in regex**
+<code>/(apple|banana)/</code>|**"apple" "banana"**
+<code>/(apple (juice|cake))/</code>|**"apple juice" "apple cake"**|"apple " "cake" "juice"
+<code>/(peanut|peanutbutter)/</code>|**only "peanut" in "peanutbutter", the first part in regex**
 `/peanut(butter)?/`|**"peanut" "peatnutbutter "**
-`/(\w+|FY\d{4})_report\.xls/`|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
+<code>/(\w+|FY\d{4})_report\.xls/</code>|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
 
 >Simplest expression first  
 >`/\w+_\d{2,4}|\d{4}_\d{2}_\w+|export\d{2}/` => `/export\d{2}|\d{4}_\d{2}_\w+|\w+_\d{2,4}/` 
@@ -292,7 +292,7 @@ Canada Postal Codes|"A9A 9A9", where A is a character from A-Z and 9 is a digit 
 UK Postal Codes|"A9 9AA"; "A99 9AA"; "AA9 9AA"; "AA99 9AA"; "A9A 9AA"; "AA9A" "9AA"|`^[A-Z](\d[A-Z]?|[A-Z0-9]\d|[A-Z]\d[A-Z0-9]) \d[A-Z][A-Z]$` or `^([A-Z]{1,2}\d{1,2}|[A-Z]{1,2}\d[A-Z]) \d[A-Z]{2}$`|"A9 9AA"; "A99 9AA"; "AA9 9AA"; "AA99 9AA"; "A9A 9AA"; "AA9A" "9AA"
 Email|"someone@somewhere.com"|`^[\w.%+\-]+@[\w.\-]+\.\[A-Za-z]{2,6}$`|"nvdhau@gmail.com", "abc@hcmiu.edu.vn"
 URL|"http://www.nowhere.com"; "http://nowhere.com"; "http://blog.nowhere.com"; "https://nowhere.com"; "http://nowhere.com/products.html"; "http://nowhere.com/imgs/img-1.png"; "http://nowhere.com/product/3378"; "http://nowhere.com/products.php?id=78"; "http://nowhere.com/products.php?id=78&color=black"; "http://nowhere.com#about"; "http://168.192.255.186"|`^(?:http|https):\/\/[\w.\-]+(?:\.[\w+\-]+)+[\w\-.,@?^=%&:;/~\\+#]+$`
-Decimal Numbers|"5.1"; "312.32142"; "0.1234"; ".321"; "67"|`^(\d*\.\d+|\d+)$`
+Decimal Numbers|"5.1"; "312.32142"; "0.1234"; ".321"; "67"|`^(\d*\.\d+|\d+)$`|
 Currency|"$43"; "$321.00"; "$0.32"; "$.50"; "£321"|`^(\$|\u00A3)(\d*\.\d{2}|\d+)$`
 IP Address|"0.0.0.0" to "255.255.255.255" and can have leading 0 "067.032.143.089"|`^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$`
 Dates|"2000-11-15"; "2000-6-9"; "2000-06-09"; "2000/6/9"|`^(19[5-9][0-9]|20[0-4][0-9]|2050)[-\/](0?[0-9]|1[0-2])[-\/](3[01]|[12][0-9]|0?[1-9])$`| from 1950 to 2050
