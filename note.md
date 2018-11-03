@@ -281,3 +281,23 @@ Example|Match|Not match
 ---|---|---
 `/caf\u00E9/`|**"café"**
 `/caf\u0065\u0301/`|**"café"** `\u0065` is the character **"e"**
+
+## Useful Regex
+
+Possible Target| Description | Regex | Match Examples
+---|---|---|---
+Names|FirstName MiddleName LastName|`^([A-Z][A-Za-z.'\-]+) (([A-Z][A-Za-z.'\-]+) )?([A-Z][A-Za-z.'\-]+)$`|"George Washington", "Albert Einstein", "Anna K. Behrensmeyer", "Blaise Pascal", "Caroline Herschel", "Cecilia Payne-Gaposchkin", "Chien-Shiung Wu", "Dorothy Hodgkin", "Edmond Halley", "Edwin Powell Hubble", "Elizabeth Blackburn", "Enrico Fermi", "Erwin Schroedinger", "Flossie Wong-Staal", "Frieda Robscheit"-Robbins", "Geraldine Seydoux", "Gertrude B. Elion", "Ingrid Daubechies", "Jacqueline K. Barton", "Jane Goodall", "Jocelyn Bell Burnell", "Johannes Kepler", "Lene Vestergaard Hau", "Lise Meitner", "Lord Kelvin", "Maria Mitchell", "Marie Curie", "Max Born", "Max Planck", "Melissa Franklin", "Michael Faraday", "Mildred S. Dresselhaus", "Nicolaus Copernicus", "Niels Bohr", "Patricia S. Goldman-Rakic", "Patty Jo Watson", "Polly Matzinger", "Richard Phillips Feynman", "Rita Levi-Montalcini", "Rosalind Franklin", "Ruzena Bajcsy", "Sarah Boysen", "Shannon W. Lucid", "Shirley Ann Jackson", "Sir Ernest Rutherford", "Sir Isaac Newton", "Stephen Hawking", "Werner Karl Heisenberg", "Wilhelm Conrad Roentgen", "Wolfgang Ernst Pauli"
+US Postal Codes|Five digits; Five digits, dash, four digits|`^\d{5}(-\d{4})?$`|"21342", "32145-3247"
+Canada Postal Codes|"A9A 9A9", where A is a character from A-Z and 9 is a digit from 0-9|`^[A-Z]\d[A-Z] \d[A-Z]\d$`|"V5G 3Y2", "B3Z 2W4"
+UK Postal Codes|"A9 9AA"; "A99 9AA"; "AA9 9AA"; "AA99 9AA"; "A9A 9AA"; "AA9A" "9AA"|`^[A-Z](\d[A-Z]?|[A-Z0-9]\d|[A-Z]\d[A-Z0-9]) \d[A-Z][A-Z]$` or `^([A-Z]{1,2}\d{1,2}|[A-Z]{1,2}\d[A-Z]) \d[A-Z]{2}$`|"A9 9AA"; "A99 9AA"; "AA9 9AA"; "AA99 9AA"; "A9A 9AA"; "AA9A" "9AA"
+Email|"someone@somewhere.com"|`^[\w.%+\-]+@[\w.\-]+\.\[A-Za-z]{2,6}$`|"nvdhau@gmail.com", "abc@hcmiu.edu.vn"
+URL|"http://www.nowhere.com"; "http://nowhere.com"; "http://blog.nowhere.com"; "https://nowhere.com"; "http://nowhere.com/products.html"; "http://nowhere.com/imgs/img-1.png"; "http://nowhere.com/product/3378"; "http://nowhere.com/products.php?id=78"; "http://nowhere.com/products.php?id=78&color=black"; "http://nowhere.com#about"; "http://168.192.255.186"|`^(?:http|https):\/\/[\w.\-]+(?:\.[\w+\-]+)+[\w\-.,@?^=%&:;/~\\+#]+$`
+Decimal Numbers|"5.1"; "312.32142"; "0.1234"; ".321"; "67"|`^(\d*\.\d+|\d+)$`
+Currency|"$43"; "$321.00"; "$0.32"; "$.50"; "£321"|`^(\$|\u00A3)(\d*\.\d{2}|\d+)$`
+IP Address|"0.0.0.0" to "255.255.255.255" and can have leading 0 "067.032.143.089"|`^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$`
+Dates|"2000-11-15"; "2000-6-9"; "2000-06-09"; "2000/6/9"|`^(19[5-9][0-9]|20[0-4][0-9]|2050)[-\/](0?[0-9]|1[0-2])[-\/](3[01]|[12][0-9]|0?[1-9])$`| from 1950 to 2050
+Times|"2:34"; "2:34am"; "2:34PM"; "02:34"|`^(0?[1-9]|1[0-2]):([0-5][0-9])([aApP][mM])?$`
+Times|"14:34"; "14:34:56"; "14:56 EST"; "14:34 GMT -5"|`^([0-1]?[0-9]|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?( ([A-Z]{3}|GMT [-+]([0-9]|1[02])))?$`
+HTML tags|"<tag>texts</tag>"; "<tag id="id1" class="class1">texts</tag>"; "<tag />"| `^<(?:([A-Za-z][A-Za-z0-9]*)\b[^>]*>(?:.*?)</\1>|[A-Za-z][A-Za-z0-9]*\b[^>]/>)$`
+Passwords|any character except space; characters length in range 8-15; must include 1 uppercase, 1 lowercase, 1 digit and 1 symbol|`^(?=.*[~!@#$%^&*()\-+=|\\{}[\]:;<>?/])(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{8,15}$`
+ 
