@@ -1,3 +1,4 @@
+**Note: Raw md file using `\|` inside regex by to escape | inside md cell table**
 # Regular Expressions
 
 >Regex is eager, greedy
@@ -123,7 +124,7 @@ Example|Match|Not match
 Metacharacter|Name|Meaning
 ---|---|---
 `()`||Content inside as a group (may have many characters)
-`|`|alternation, OR|Match previous or next expression
+`\|`|alternation, OR|Match previous or next expression
 
   
 Example|Match|Not match
@@ -131,11 +132,11 @@ Example|Match|Not match
 `/(abc)+/`|**"abc" "abcabc" "abcabcabc"**
 `/(in)?complete/`|**"complete" "incomplete"**|"ncomplete" "icomplete"
 `/apple(s)?/`| same as `/apples?/` but may look clearer
-`/(apple<code>|</code>banana)/`|**"apple" "banana"**
+`/(apple\|banana)/`|**"apple" "banana"**
 `/(apple (juice\|cake))/`|**"apple juice" "apple cake"**|"apple " "cake" "juice"
-`/(peanut|peanutbutter)/`|**only "peanut" in "peanutbutter", the first part in regex**
+`/(peanut\|peanutbutter)/`|**only "peanut" in "peanutbutter", the first part in regex**
 `/peanut(butter)?/`|**"peanut" "peatnutbutter "**
-`/(\w+|FY\d{4})_report\.xls/`|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
+`/(\w+\|FY\d{4})_report\.xls/`|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
 
 >Simplest expression first  
 >`/\w+_\d{2,4}|\d{4}_\d{2}_\w+|export\d{2}/` => `/export\d{2}|\d{4}_\d{2}_\w+|\w+_\d{2,4}/` 
