@@ -1,4 +1,4 @@
-**Note: Raw md file using `\|` inside regex by to escape | inside md cell table. Regex to find these regexs <code>`/[^`]*?\|[^`]*?/`</code>**
+**Note: Raw markdown file using `\|` inside regex to escape | inside markdown cell table. Regex to find these regexs <pre>`/[^`]*?\|[^`]*?/`</pre>**
 
 # Regular Expressions
 
