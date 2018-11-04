@@ -131,11 +131,11 @@ Example|Match|Not match
 `/(abc)+/`|**"abc" "abcabc" "abcabcabc"**
 `/(in)?complete/`|**"complete" "incomplete"**|"ncomplete" "icomplete"
 `/apple(s)?/`| same as `/apples?/` but may look clearer
-<code>/(apple|banana)/</code>|**"apple" "banana"**
-<code>/(apple (juice|cake))/</code>|**"apple juice" "apple cake"**|"apple " "cake" "juice"
-<code>/(peanut|peanutbutter)/</code>|**only "peanut" in "peanutbutter", the first part in regex**
+`/(apple<code>|</code>banana)/`|**"apple" "banana"**
+`/(apple (juice\|cake))/`|**"apple juice" "apple cake"**|"apple " "cake" "juice"
+`/(peanut|peanutbutter)/`|**only "peanut" in "peanutbutter", the first part in regex**
 `/peanut(butter)?/`|**"peanut" "peatnutbutter "**
-<code>/(\w+|FY\d{4})_report\.xls/</code>|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
+`/(\w+|FY\d{4})_report\.xls/`|use the first part `/\w+/` to match **"FY2003_report" and "xls" of "FY2003_report.xls"**, the second part `/FY\d{4})_report\.xls/` is never used
 
 >Simplest expression first  
 >`/\w+_\d{2,4}|\d{4}_\d{2}_\w+|export\d{2}/` => `/export\d{2}|\d{4}_\d{2}_\w+|\w+_\d{2,4}/` 
