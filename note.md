@@ -129,7 +129,7 @@ Example|Match|Not match
 Metacharacter|Name|Meaning
 ---|---|---
 `()`||Content inside as a group (may have many characters)
-`\|`|alternation, OR|Match previous or next expression
+```|```|alternation, OR|Match previous or next expression
 
   
 Example|Match|Not match
