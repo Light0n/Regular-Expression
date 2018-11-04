@@ -1,4 +1,8 @@
-**Note: Raw markdown file using `\|` inside regex to escape | inside markdown cell table. Regex to find these regexs <pre>`/[^`]*?\|[^`]*?/`</pre>**
+**Note: Raw markdown file using `\|` inside regex to escape | inside markdown cell table**
+
+```
+Regex to find these regexs: `/[^`]*?\|[^`]*?/`
+```
 
 # Regular Expressions
 
