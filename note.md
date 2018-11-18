@@ -128,7 +128,7 @@ Example|Match|Not match
 
 Metacharacter|Name|Meaning
 ---|---|---
-`()`||Content inside as a group (may have many characters)
+`()`||Content inside as a group (may have many characters) 
 `\|`|alternation, OR|Match previous or next expression
 
   
@@ -306,4 +306,7 @@ Times|"2:34"; "2:34am"; "2:34PM"; "02:34"|`/^(0?[1-9]\|1[0-2]):([0-5][0-9])([aAp
 Times|"14:34"; "14:34:56"; "14:56 EST"; "14:34 GMT -5"|`/^([0-1]?[0-9]\|2[0-3]):([0-5][0-9])(:([0-5][0-9]))?( ([A-Z]{3}\|GMT [-+]([0-9]\|1[02])))?$/`
 HTML tags|"<tag>texts</tag>"; "<tag id="id1" class="class1">texts</tag>"; "<tag />"| `/^<(?:([A-Za-z][A-Za-z0-9]*)\b[^>]*>(?:.*?)</\1>\|[A-Za-z][A-Za-z0-9]*\b[^>]/>)$/`
 Passwords|any character except space; characters length in range 8-15; must include 1 uppercase, 1 lowercase, 1 digit and 1 symbol|`/^(?=.*[~!@#$%^&*()\-+=\|\\{}[\]:;<>?/])(?=.*\d)(?=.*[A-Z])(?=.*[a-z])\S{8,15}$/`
- 
+Credit card|American Express: "370012345612345" "3700-123456-12345", 15 digits, begin with 34 or 37|`/^3[47]\d{2}([\- ]?)\d{6}\1\d{5}$/`
+Credit card|Visa: "4000123412341234" "4000-1234-1234-1234", 16 digits, 1st digit is 4; <br/>MasterCard: "5100123412341234" "5100-1234-1234-1234", 16 digits, begin with 51-55;<br/>Discover: "6011123412341234" "6011-1234-1234-1234", 16 digits, begin with 6011|`/^(?:[4]\d{3}\|5[1-5]\d{2}\|6011)([\- ]?)\d{4}\1\d{4}\1\d{4}$/`
+Credit card| all four types| `/^(?:3[47]\d{2}([\- ]?)\d{6}\1\d{5}\|(?:[4]\d{3}\|5[1-5]\d{2}\|6011)([\- ]?)\d{4}\2\d{4}\2\d{4})$/`
+Finding words near other words| "a abc edf man" "a xyz man"|`/\b[Aa]\b (?:\w+[\- ]){0,5}\b[Mm]an\b/`
