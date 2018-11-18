@@ -131,7 +131,6 @@ Metacharacter|Name|Meaning
 `()`||Content inside as a group (may have many characters) 
 `\|`|alternation, OR|Match previous or next expression
 
-  
 Example|Match|Not match
 ---|---|---
 `/(abc)+/`|**"abc" "abcabc" "abcabcabc"**
